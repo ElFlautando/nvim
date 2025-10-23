@@ -16,17 +16,4 @@ vim.opt.rtp:prepend(lazypath)
 
 -- This is also a good place to setup other settings (vim.opt)
 
-require("lazy").setup({
-  spec = {
-	{
-	  'stevearc/oil.nvim',
-	  opts = {},
-	  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
-	  lazy = false,
-	},
-  },
-
-  install = { colorscheme = { "habamax" } },
-
-  checker = { enabled = true },
-})
+require("lazy").setup("plugins")
