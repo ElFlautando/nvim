@@ -18,7 +18,12 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
-
+	{
+	  'stevearc/oil.nvim',
+	  opts = {},
+	  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+	  lazy = false,
+	},
   },
 
   install = { colorscheme = { "habamax" } },
