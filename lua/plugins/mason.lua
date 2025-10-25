@@ -14,7 +14,4 @@ return {
       require("mason-lspconfig").setup(require("lsp.mason-lsp"))
     end,
   },
-  {
-    "neovim/nvim-lspconfig" 
-  }
 }
