@@ -3,13 +3,13 @@ local M = {}
 
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { noremap = true, silent = true, })
 
-vim.keymap.set("n", "wq" , ":wq<CR>")
+vim.keymap.set("n", "wq", ":wq<CR>")
 
-vim.keymap.set("n", "<leader>o", ":Oil<CR>", {noremap = true, silent =true})
+vim.keymap.set("n", "<leader>oi", ":Oil<CR>", { noremap = true, silent = true })
 
 
 -- Command keymap:
-vim.keymap.set("c", "<C-b>", "<Left>", {noremap = true})
+vim.keymap.set("c", "<C-b>", "<Left>", { noremap = true })
 vim.keymap.set("c", "<C-f>", "<Right>", { noremap = true, })
 vim.keymap.set("c", "<C-a>", "<Home>", { noremap = true, })
 vim.keymap.set("c", "<C-e>", "<End>", { noremap = true, })
@@ -19,11 +19,16 @@ vim.keymap.set("c", "<C-e>", "<End>", { noremap = true, })
 -- Change keymap
 --
 
-function M.lsp()
-  vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format())
-  vim.keymap.set("n", "<leader>ac" , vim.lsp.buf.code_action())
+function M.lsp(client, bufnr)
+  local opts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, opts)
+  vim.keymap.set("n", "<leader>ac", vim.lsp.buf.code_action, opts)
+  vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float, opts)
 
-  vim.keymap.set("n", "<leader>dg", vim.diagnostics.open_float())
+  if client.name == "clangd" then
+    opts.buffer = bufnr
+    --vim.keymap.set("n", "<leader>oo", ":ClangdSwitchSourceHeader<CR>", { noremap = true, silent = true })
+  end
 end
 
 function M.hover()
