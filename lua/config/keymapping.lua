@@ -24,6 +24,9 @@ function M.lsp(client, bufnr)
   vim.keymap.set("n", "<leader>fm", vim.lsp.buf.format, opts)
   vim.keymap.set("n", "<leader>ac", vim.lsp.buf.code_action, opts)
   vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float, opts)
+  vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts)
+  vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, opts)
+  vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, opts)
 
   if client.name == "clangd" then
     opts.buffer = bufnr
