@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd({ "filetype", }, {
-  pattern = { "cxx", "c", "python", "lua", "cmake", "tex", "javascript", "markdown", },
+  pattern = { "cxx", "c", "python", "lua",  "tex", "javascript", "markdown", },
   callback = function(args)
     vim.treesitter.start()
   end,
