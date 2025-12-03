@@ -13,7 +13,7 @@ return {
     local cmp = require("cmp")
 
     vim.opt.completeopt = { "menuone", "noinsert", "noselect" }
-    vim.g.cmp_disable_enable_toggle = false
+    vim.g.cmp_disable_enable_toggle = true
 
     opts.enabled = function()
       return vim.g.cmp_disable_enable_toggle
@@ -44,6 +44,11 @@ return {
         cmp.config.compare.length,
         cmp.config.compare.order,
       },
+    }
+
+    opts.window = {
+      completion = require("cmp").config.window.bordered(),
+      documentation = require("cmp").config.window.bordered(),
     }
 
     local t = function(str)
@@ -108,6 +113,7 @@ return {
       ),
       matching = { disallow_symbol_nonprefix_matching = false },
     })
+
 
 
     return opts
