@@ -1,7 +1,7 @@
 return {
   "mason-org/mason-lspconfig.nvim",
   opts = {
-    ensure_installed = { "lua_ls", "clangd",  "pyright", },
+    ensure_installed = { "lua_ls", "clangd",  "pyright", "cspell-lsp", "esbonio", "ltex_plus" },
     automatic_installation = true,
   },
   dependencies = {
